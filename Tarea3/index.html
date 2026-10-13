@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables, tipos y conversiones · Achraf</title>
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1"><i class="bi bi-code-slash me-2"></i>DWEC - Tema 3: Cuaderno de Laboratorio</span>
+            <span class="navbar-text text-white font-monospace">Alumno: Achraf</span>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <!-- CABECERA -->
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold">Variables, tipos y conversiones</h1>
+            <p class="lead text-secondary">Práctica de JavaScript: predicción, tipos, conversiones y coerción.</p>
+        </header>
+
+        <!-- EJERCICIO 1 -->
+        <section class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">
+                Ejercicio 1: Variables y typeof
+            </div>
+            <div class="card-body">
+                <p class="card-text">Declaración de variables de distintos tipos, uso de <code>const</code> y <code>let</code>, y comprobación con <code>typeof</code>.</p>
+                <div class="mb-3">
+                    <h6>Código ejecutado:</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code>const edad = 20;
+const nombreUsuario = "Achraf";
+const esEstudiante = true;
+const datoNulo = null;
+let variableIndefinida;
+const numeroGrande = 10n;
+let ciudad = "Granada";
+
+console.log(edad, typeof edad);
+// ... (ver app.js para el resto)</code></pre>
+                </div>
+
+                <h6>Predicción y Resultados:</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mt-2 align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Variable / Expresión</th>
+                                <th>Valor</th>
+                                <th>TypeOf Espero</th>
+                                <th>TypeOf Sale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>edad</code></td>
+                                <td>20</td>
+                                <td>number</td>
+                                <td>number</td>
+                            </tr>
+                            <tr>
+                                <td><code>nombreUsuario</code></td>
+                                <td>"Achraf"</td>
+                                <td>string</td>
+                                <td>string</td>
+                            </tr>
+                            <tr>
+                                <td><code>esEstudiante</code></td>
+                                <td>true</td>
+                                <td>boolean</td>
+                                <td>boolean</td>
+                            </tr>
+                            <tr>
+                                <td><code>datoNulo</code></td>
+                                <td>null</td>
+                                <td>object</td>
+                                <td>object</td>
+                            </tr>
+                            <tr>
+                                <td><code>variableIndefinida</code></td>
+                                <td>undefined</td>
+                                <td>undefined</td>
+                                <td>undefined</td>
+                            </tr>
+                            <tr>
+                                <td><code>numeroGrande</code></td>
+                                <td>10n</td>
+                                <td>bigint</td>
+                                <td>bigint</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-info mt-3" role="alert">
+                    <strong>Nota sobre null:</strong> <code>typeof null</code> devuelve <code>"object"</code> debido a un error histórico en la primera implementación de JavaScript que se ha conservado por compatibilidad.
+                </div>
+
+                <button class="btn btn-primary" onclick="ejercicio1()"><i class="bi bi-play-fill me-1"></i>Ejecutar Ejercicio 1</button>
+            </div>
+        </section>
+
+        <!-- EJERCICIO 2 -->
+        <section class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">
+                Ejercicio 2: Conversiones explícitas
+            </div>
+            <div class="card-body">
+                <p class="card-text">Conversiones utilizando <code>Number()</code>, <code>String()</code> y <code>Boolean()</code>.</p>
+                <div class="mb-3">
+                    <h6>Código ejecutado:</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code>String(123);
+Number("123");
+Number("12abc");
+Number("");
+Number(true);
+Boolean(0);
+Boolean("texto");
+Boolean("");</code></pre>
+                </div>
+
+                <h6>Tabla Conversión / Espero / Sale:</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mt-2 align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Conversión</th>
+                                <th>Espero</th>
+                                <th>Sale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>String(123)</code></td>
+                                <td>"123"</td>
+                                <td>"123"</td>
+                            </tr>
+                            <tr>
+                                <td><code>Number("123")</code></td>
+                                <td>123</td>
+                                <td>123</td>
+                            </tr>
+                            <tr>
+                                <td><code>Number("12abc")</code></td>
+                                <td>NaN</td>
+                                <td>NaN</td>
+                            </tr>
+                            <tr>
+                                <td><code>Number("")</code></td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><code>Number(true)</code></td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><code>Boolean(0)</code></td>
+                                <td>false</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td><code>Boolean("texto")</code></td>
+                                <td>true</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td><code>Boolean("")</code></td>
+                                <td>false</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="btn btn-primary mt-2" onclick="ejercicio2()"><i class="bi bi-play-fill me-1"></i>Ejecutar Ejercicio 2</button>
+            </div>
+        </section>
+
+        <!-- EJERCICIO 3 -->
+        <section class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">
+                Ejercicio 3: Coerción y comparaciones
+            </div>
+            <div class="card-body">
+                <p class="card-text">Evaluación de expresiones mixtas y comparaciones estrictas (<code>===</code>) frente a débiles (<code>==</code>).</p>
+                <div class="mb-3">
+                    <h6>Código ejecutado:</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code>"5" - 2;
+"5" + 2;
+"10" * "2";
+true + 1;
+null + 5;
+undefined + 1;
+5 == '5'; 5 === '5';
+0 == false; 0 === false;
+null == undefined; null === undefined;</code></pre>
+                </div>
+
+                <h6>Tabla Expresión / Espero / Sale:</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mt-2 align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Expresión</th>
+                                <th>Espero</th>
+                                <th>Sale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>"5" - 2</code></td>
+                                <td>3</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><code>"5" + 2</code></td>
+                                <td>"52"</td>
+                                <td>"52"</td>
+                            </tr>
+                            <tr>
+                                <td><code>5 == '5'</code></td>
+                                <td>true</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td><code>5 === '5'</code></td>
+                                <td>false</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td><code>0 == false</code></td>
+                                <td>true</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td><code>0 === false</code></td>
+                                <td>false</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td><code>null == undefined</code></td>
+                                <td>true</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td><code>null === undefined</code></td>
+                                <td>false</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-3"><strong>Explicación de coerción:</strong> Con el operador <code>+</code>, si uno de los operandos es una cadena, JavaScript prioriza la concatenación. En cambio, con operadores como <code>-</code> o <code>*</code>, fuerza la conversión numérica.</p>
+
+                <button class="btn btn-primary mt-2" onclick="ejercicio3()"><i class="bi bi-play-fill me-1"></i>Ejecutar Ejercicio 3</button>
+            </div>
+        </section>
+
+        <!-- EJERCICIO 4 -->
+        <section class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">
+                Ejercicio 4: Tu ficha con plantillas de cadena
+            </div>
+            <div class="card-body">
+                <p class="card-text">Construcción de ficha personal utilizando plantillas de cadena, concatenación clásica y gestión de errores con <code>const</code>.</p>
+                
+                <div class="mb-3">
+                    <h6>Código ejecutado:</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code>const nombre = "Achraf";
+let horasEstudio = 6;
+horasEstudio += 4;
+const msgTemplate = `Hola, me llamo ${nombre}...`;
+const msgConcat = "Hola, me llamo " + nombre + "...";
+console.log(msgTemplate === msgConcat); // true</code></pre>
+                </div>
+
+                <div class="alert alert-danger mt-3" role="alert">
+                    <h6 class="alert-heading fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i>Error al reasignar una const:</h6>
+                    <code>Uncaught TypeError: Assignment to constant variable.</code>
+                    <hr>
+                    <p class="mb-0"><strong>Significado:</strong> Ocurre al intentar cambiar el valor de una constante ya inicializada. JavaScript bloquea la reasignación para proteger los datos fijos.</p>
+                </div>
+
+                <button class="btn btn-primary mt-2" onclick="ejercicio4()"><i class="bi bi-play-fill me-1"></i>Ejecutar Ejercicio 4</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <small>DWEC 2026/2027 · Realizado por <strong>Achraf</strong></small>
+        </div>
+    </footer>
+
+    <!-- JS de la aplicación -->
+    <script src="js/app.js"></script>
+</body>
+</html>
